@@ -42,18 +42,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-//                from components.release
-                groupId = 'com.github.afoli'
-                artifactId = 'ysamlib'
-                version = '0.0.3'
-                afterEvaluate {
-                    components.release
-                }
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.afoli'
+            artifactId = 'ysamlib'
+            version = '0.0.4'
+            afterEvaluate {
+                components.release
             }
         }
     }
 }
+
