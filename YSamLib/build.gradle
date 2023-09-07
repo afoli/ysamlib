@@ -46,10 +46,13 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                from components.release
+//                from components.release
                 groupId = 'com.github.afoli'
                 artifactId = 'ysamlib'
-                version = '0.0.2'
+                version = '0.0.3'
+                afterEvaluate {
+                    components.release
+                }
             }
         }
     }

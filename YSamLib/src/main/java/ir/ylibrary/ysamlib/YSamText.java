@@ -2,40 +2,35 @@ package ir.ylibrary.ysamlib;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
-public class YSamText extends androidx.appcompat.widget.AppCompatTextView {
+public class YSamText extends LinearLayoutCompat {
     public YSamText(@NonNull Context context) {
         super(context);
-        setTextColor(0);
+        init(context);
     }
 
     public YSamText(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        setTextColor(0);
+        init(context);
     }
 
     public YSamText(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setTextColor(0);
+        init(context);
     }
 
-    @Override
-    public void setTextColor(int color) {
-        color = getResources().getColor(R.color.textColorExample, null);
-        super.setTextColor(color);
+    private void init(final Context context) {
+        inflate(context, R.layout.text_view_custom, this);
+
+        TextView textView = (TextView) findViewById(R.id.text);
+        textView.setText("LIBRARY");
+        textView.setTextColor(getResources().getColor(R.color.textColor, null));
+
     }
 
-    @Override
-    public void setText(CharSequence text, BufferType type) {
-        text = "library";
-        super.setText(text, type);
-    }
-
-    @Override
-    public boolean isInEditMode() {
-        return super.isInEditMode();
-    }
 }
