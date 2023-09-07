@@ -42,27 +42,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-
-//task sourceJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier "sources"
-//}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.afoli'
-            artifactId = 'ysamlib'
-            version = '0.0.1'
-//            artifact(sourceJar)
-//            artifact("$buildDir/outputs/aar/ysamlib-release.aar")
-        }
-    }
-    repositories {
-        maven {
-            name = 'ysamlib'
-            url = "${project.buildDir}/repo"
-//            url "$buildDir/repo"
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.afoli'
+                artifactId = 'ysamlib'
+                version = '0.0.2'
+            }
         }
     }
 }
